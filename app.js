@@ -1,5 +1,8 @@
 const gameContainer = document.querySelector(".game-container");
 const keyboardContainer = document.querySelector(".keyboard-container");
+const closeButton = document.querySelector(".close-button");
+const instructionButton = document.querySelector(".instruction-button");
+const instructionContainer = document.querySelector(".instruction-container");
 
 // Keyboard
 const keys = [
@@ -62,4 +65,13 @@ board.forEach((row, rowIndex) => {
     eachRow.append(square);
   });
   gameContainer.append(eachRow);
+});
+
+// instructions
+closeButton.addEventListener("click", () => {
+  instructionContainer.classList.remove("open");
+});
+
+instructionButton.addEventListener("click", () => {
+  instructionContainer.classList.add("open");
 });

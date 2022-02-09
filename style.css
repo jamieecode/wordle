@@ -16,6 +16,12 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 section {
   width: 30rem;
   margin: 0 auto;
@@ -29,7 +35,7 @@ header {
 }
 
 header div {
-  width: 3.5rem;
+  width: 5rem;
   display: flex;
   justify-content: space-between;
   font-size: 1.3rem;
@@ -40,9 +46,9 @@ header h1 {
   font-size: 2.5rem;
 }
 
-header i {
+header button {
   color: var(--medium-gray);
-  cursor: pointer;
+  font-size: 1.3rem;
 }
 
 .keyboard-container {
@@ -62,7 +68,6 @@ header i {
   font-size: 0.88rem;
   font-weight: 600;
   border-radius: 0.2em;
-  cursor: pointer;
 }
 
 .keyboard:first-child {
@@ -93,4 +98,87 @@ header i {
   height: 3.6rem;
   margin: 0.2em;
   border: 2px solid var(--medium-gray);
+}
+
+/* instructions */
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.close-button {
+  font-size: 2rem;
+  color: var(--dark-gray);
+}
+
+.instruction-container {
+  display: none;
+  position: fixed;
+  top: 0;
+
+  height: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.instruction-container.open {
+  display: block;
+}
+
+.instruction-container h3 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.instruction {
+  font-size: 0.9rem;
+}
+
+.instruction p {
+  margin: 0.5em 0;
+}
+
+.example-boxes {
+  border-top: 1px solid var(--light-gray);
+  border-bottom: 1px solid var(--light-gray);
+  margin: 1em 0;
+}
+
+.example-boxes h4 {
+  margin: 0.5em 0;
+}
+
+.example-box-container {
+  display: flex;
+}
+
+.example-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 2px solid var(--medium-gray);
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin: 0.3em 0.1em 0.3em 0;
+}
+
+.example-box.green {
+  background-color: var(--green);
+  color: #fff;
+  border: none;
+}
+
+.example-box.yellow {
+  background-color: var(--yellow);
+  color: #fff;
+  border: none;
+}
+
+.example-box.grey {
+  background-color: var(--medium-gray);
+  color: #fff;
+  border: none;
 }

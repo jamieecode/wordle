@@ -22,13 +22,66 @@
   <body>
     <section>
       <header>
-        <div><i class="far fa-question-circle"></i></div>
-
+        <div>
+          <button class="instruction-button">
+            <i class="far fa-question-circle"></i>
+          </button>
+        </div>
         <h1>WORDLE</h1>
-        <div><i class="fas fa-signal"></i><i class="fas fa-cog"></i></div>
+        <div>
+          <button><i class="fas fa-signal"></i></button>
+          <button><i class="fas fa-cog"></i></button>
+        </div>
       </header>
       <section class="game-container"></section>
       <section class="keyboard-container"></section>
+      <section class="instruction-container">
+        <div class="button-container">
+          <button class="close-button">&times;</button>
+        </div>
+        <section class="instruction">
+          <h3>HOW TO PLAY</h3>
+          <div>
+            <p>Guess the <b>WORDLE</b> in 6 tries.</p>
+            <p>
+              Each guess must be a valid 5 letter word. Hit the enter button to
+              submit.
+            </p>
+            <p>
+              After each guess, the color of the tiles will change to show how
+              close your guess was to the word.
+            </p>
+          </div>
+          <div class="example-boxes">
+            <h4>Examples</h4>
+            <div class="example-box-container">
+              <div class="example-box green">V</div>
+              <div class="example-box">O</div>
+              <div class="example-box">G</div>
+              <div class="example-box">U</div>
+              <div class="example-box">E</div>
+            </div>
+            <p>The letter <b>V</b> is in the word and in the correct spot.</p>
+            <div class="example-box-container">
+              <div class="example-box">L</div>
+              <div class="example-box yellow">A</div>
+              <div class="example-box">B</div>
+              <div class="example-box">L</div>
+              <div class="example-box">E</div>
+            </div>
+            <p>The letter <b>A</b> is in the word but in the wrong spot.</p>
+            <div class="example-box-container">
+              <div class="example-box">D</div>
+              <div class="example-box">A</div>
+              <div class="example-box">I</div>
+              <div class="example-box grey">L</div>
+              <div class="example-box">Y</div>
+            </div>
+            <p>The letter <b>L</b> is not in the word in any spot.</p>
+          </div>
+          <p><b>A new WORDLE will be available each day!</b></p>
+        </section>
+      </section>
     </section>
     <script src="app.js"></script>
   </body>
