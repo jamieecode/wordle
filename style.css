@@ -97,7 +97,12 @@ header button {
   width: 3.6rem;
   height: 3.6rem;
   margin: 0.2em;
-  border: 2px solid var(--medium-gray);
+  border: 2px solid var(--light-gray);
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* instructions */
@@ -116,7 +121,6 @@ header button {
   display: none;
   position: fixed;
   top: 0;
-
   height: 100%;
   margin: 0 auto;
   background-color: #fff;

@@ -4,6 +4,10 @@ const closeButton = document.querySelector(".close-button");
 const instructionButton = document.querySelector(".instruction-button");
 const instructionContainer = document.querySelector(".instruction-container");
 
+let currentRow = 0;
+let currentColumn = 0;
+const wordle = "ERASE";
+
 // Keyboard
 const keys = [
   "Q",
@@ -36,12 +40,65 @@ const keys = [
   "BACKSPACE",
 ];
 
+const deleteLetter = () => {
+  if (currentColumn > 0) {
+    currentColumn--;
+    const square = document.getElementById(`${currentRow}x${currentColumn}`);
+    square.textContent = "";
+    board[currentRow][currentColumn] = "";
+    square.setAttribute("data-key", "");
+  }
+};
+
+const addLetter = (letter) => {
+  const square = document.getElementById(`${currentRow}x${currentColumn}`);
+  square.textContent = letter;
+  board[currentRow][currentColumn] = letter;
+  square.setAttribute("data-key", letter);
+  currentColumn++;
+};
+
+const checkWordle = () => {
+  const guess = board[currentRow].join("");
+
+  if (currentColumn > 4) {
+    if (wordle === guess) {
+      alert("Right Answer");
+      return;
+    } else {
+      if (currentRow >= 5) {
+        alert("Game Over");
+        return;
+      } else if (currentRow < 5) {
+        currentRow++;
+        currentColumn = 0;
+      }
+    }
+  }
+};
+
+const clickKey = (key) => {
+  if (key === "BACKSPACE") {
+    deleteLetter();
+    return;
+  }
+  if (key === "ENTER") {
+    checkWordle();
+    return;
+  }
+
+  if (currentColumn < 5 && currentRow < 6) {
+    addLetter(key);
+    return;
+  }
+};
+
 keys.forEach((key) => {
   const keyboard = document.createElement("button");
   keyboard.textContent = key;
   keyboard.classList.add("keyboard");
   keyboardContainer.append(keyboard);
-  keyboard.addEventListener("click", () => console.log(key));
+  keyboard.addEventListener("click", () => clickKey(key));
 });
 
 // game board
