@@ -105,6 +105,24 @@ header button {
   align-items: center;
 }
 
+.square.green {
+  background-color: var(--green);
+  color: #fff;
+  border: none;
+}
+
+.square.yellow {
+  background-color: var(--yellow);
+  color: #fff;
+  border: none;
+}
+
+.square.grey {
+  background-color: var(--medium-gray);
+  color: #fff;
+  border: none;
+}
+
 /* instructions */
 .button-container {
   width: 100%;

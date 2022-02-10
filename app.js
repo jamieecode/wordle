@@ -58,9 +58,28 @@ const addLetter = (letter) => {
   currentColumn++;
 };
 
+const colorSquare = () => {
+  const guessWordle = [];
+
+  const squares = document.getElementById(`row-${currentRow}`).childNodes;
+  squares.forEach((square) => {
+    guessWordle.push(square);
+  });
+
+  guessWordle.forEach((guess, index) => {
+    if (guess.textContent === wordle[index]) {
+      guess.classList.add("green");
+    } else if (wordle.includes(guess.textContent)) {
+      guess.classList.add("yellow");
+    } else {
+      guess.classList.add("grey");
+    }
+  });
+};
+
 const checkWordle = () => {
   const guess = board[currentRow].join("");
-
+  colorSquare();
   if (currentColumn > 4) {
     if (wordle === guess) {
       alert("Right Answer");
