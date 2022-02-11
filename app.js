@@ -6,6 +6,7 @@ const instructionContainer = document.querySelector(".instruction-container");
 
 let currentRow = 0;
 let currentColumn = 0;
+let gameOver = false;
 const wordle = "ERASE";
 
 // Keyboard
@@ -60,8 +61,9 @@ const addLetter = (letter) => {
 
 const colorSquare = () => {
   const guessWordle = [];
-
+  const keyboard = document.querySelectorAll(".keyboard");
   const squares = document.getElementById(`row-${currentRow}`).childNodes;
+
   squares.forEach((square) => {
     guessWordle.push(square);
   });
@@ -69,18 +71,34 @@ const colorSquare = () => {
   guessWordle.forEach((guess, index) => {
     if (guess.textContent === wordle[index]) {
       guess.classList.add("green");
+      keyboard.forEach((key) => {
+        if (key.textContent === guess.textContent) {
+          key.classList.add("green");
+        }
+      });
     } else if (wordle.includes(guess.textContent)) {
       guess.classList.add("yellow");
+      keyboard.forEach((key) => {
+        if (key.textContent === guess.textContent) {
+          key.classList.add("yellow");
+        }
+      });
     } else {
       guess.classList.add("grey");
+      keyboard.forEach((key) => {
+        if (key.textContent === guess.textContent) {
+          key.classList.add("grey");
+        }
+      });
     }
   });
 };
 
 const checkWordle = () => {
   const guess = board[currentRow].join("");
-  colorSquare();
+
   if (currentColumn > 4) {
+    colorSquare();
     if (wordle === guess) {
       alert("Right Answer");
       return;
@@ -97,18 +115,19 @@ const checkWordle = () => {
 };
 
 const clickKey = (key) => {
-  if (key === "BACKSPACE") {
-    deleteLetter();
-    return;
-  }
-  if (key === "ENTER") {
-    checkWordle();
-    return;
-  }
+  if (!gameOver) {
+    if (key === "BACKSPACE") {
+      deleteLetter();
+      return;
+    }
+    if (key === "ENTER") {
+      checkWordle();
+      return;
+    }
 
-  if (currentColumn < 5 && currentRow < 6) {
-    addLetter(key);
-    return;
+    if (currentColumn < 5 && currentRow < 6) {
+      addLetter(key);
+    }
   }
 };
 

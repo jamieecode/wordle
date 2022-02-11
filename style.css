@@ -84,6 +84,21 @@ header button {
   padding: 0 0.2em;
 }
 
+.keyboard.green {
+  background-color: var(--green);
+  color: white;
+}
+
+.keyboard.yellow {
+  background-color: var(--yellow);
+  color: white;
+}
+
+.keyboard.grey {
+  background-color: var(--medium-gray);
+  color: white;
+}
+
 .game-container {
   margin: 0.5em 0;
 }
