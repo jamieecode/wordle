@@ -3,6 +3,7 @@ const keyboardContainer = document.querySelector(".keyboard-container");
 const closeButton = document.querySelector(".close-button");
 const instructionButton = document.querySelector(".instruction-button");
 const instructionContainer = document.querySelector(".instruction-container");
+const messageContainer = document.querySelector(".message-container");
 
 let currentRow = 0;
 let currentColumn = 0;
@@ -100,11 +101,11 @@ const checkWordle = () => {
   if (currentColumn > 4) {
     colorSquare();
     if (wordle === guess) {
-      alert("Right Answer");
+      showMessage("Splendid!");
       return;
     } else {
       if (currentRow >= 5) {
-        alert("Game Over");
+        showMessage("Game Over");
         return;
       } else if (currentRow < 5) {
         currentRow++;
@@ -170,3 +171,13 @@ closeButton.addEventListener("click", () => {
 instructionButton.addEventListener("click", () => {
   instructionContainer.classList.add("open");
 });
+
+// messages
+const showMessage = (message) => {
+  messageContainer.textContent = message;
+
+  messageContainer.classList.add("show");
+  setTimeout(() => {
+    messageContainer.classList.remove("show");
+  }, 2000);
+};
