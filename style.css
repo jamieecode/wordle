@@ -23,7 +23,7 @@ button {
 }
 
 section {
-  width: 30rem;
+  width: 32rem;
   margin: 0 auto;
 }
 
@@ -62,8 +62,8 @@ header button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0.2em;
-  width: 2.5rem;
+  margin: 0.25em;
+  width: 2.6rem;
   height: 3.5rem;
   font-size: 0.88rem;
   font-weight: 600;
@@ -100,7 +100,7 @@ header button {
 }
 
 .game-container {
-  margin: 0.5em 0;
+  margin: 0.3em 0;
 }
 
 .row {
@@ -111,7 +111,7 @@ header button {
 .square {
   width: 3.6rem;
   height: 3.6rem;
-  margin: 0.2em;
+  margin: 0.1em;
   border: 2px solid var(--light-gray);
   font-size: 2rem;
   font-weight: 700;

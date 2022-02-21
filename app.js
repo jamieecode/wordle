@@ -8,7 +8,20 @@ const messageContainer = document.querySelector(".message-container");
 let currentRow = 0;
 let currentColumn = 0;
 let gameOver = false;
-const wordle = "ERASE";
+let wordle;
+
+// Get random word
+const getRandomWord = () => {
+  axios
+    .get("http://localhost:5000/word", (req, res) => {
+      res.json();
+    })
+    .then((data) => {
+      wordle = data.data.toUpperCase();
+    });
+};
+
+getRandomWord();
 
 // Keyboard
 const keys = [
@@ -179,5 +192,5 @@ const showMessage = (message) => {
   messageContainer.classList.add("show");
   setTimeout(() => {
     messageContainer.classList.remove("show");
-  }, 2000);
+  }, 1000);
 };
